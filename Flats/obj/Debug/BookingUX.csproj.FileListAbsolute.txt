@@ -1,0 +1,14 @@
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\Flats.dll.config
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\Flats.dll
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\Flats.pdb
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\EntityFramework.dll
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\EntityFramework.xml
+D:\C#\BookingApartsKursovaya\Flats\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\BookingUX.csproj.AssemblyReference.cache
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\Flats.Migrations.Gena.resources
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\BookingUX.csproj.GenerateResource.cache
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\BookingUX.csproj.CoreCompileInputs.cache
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\BookingUX.csproj.CopyComplete
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\Flats.dll
+D:\C#\BookingApartsKursovaya\Flats\obj\Debug\Flats.pdb

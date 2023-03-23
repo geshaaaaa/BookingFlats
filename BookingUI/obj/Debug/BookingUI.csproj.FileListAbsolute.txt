@@ -1,0 +1,17 @@
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\BookingUI.exe.config
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\BookingUI.exe
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\BookingUI.pdb
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.csproj.AssemblyReference.cache
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.csproj.SuggestedBindingRedirects.cache
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.BookingViewer.resources
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.Properties.Resources.resources
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.csproj.GenerateResource.cache
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.csproj.CoreCompileInputs.cache
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.exe
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.pdb
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\EntityFramework.dll
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\Flats.dll
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\Flats.pdb
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\Flats.dll.config
+D:\C#\BookingApartsKursovaya\BookingUI\bin\Debug\EntityFramework.xml
+D:\C#\BookingApartsKursovaya\BookingUI\obj\Debug\BookingUI.csproj.CopyComplete
