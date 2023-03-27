@@ -127,11 +127,11 @@ namespace BookingUI
             int flatId = (int)FlatDropdown.SelectedValue;
             string phoneNumber = PhoneTextBox.Text;
             string personName = NametextBox.Text;
-            if (checker.FlatChecker(checkInValue,checkOutValue,totalPrice))
+            if (checker.FlatChecker(checkInValue,checkOutValue,flatId))
             {
                 return;
             }
-         
+        
             checker.PeopleInsert(flatId,phoneNumber,personName,checkInValue,checkOutValue,totalPrice);
 
         }

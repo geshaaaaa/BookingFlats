@@ -22,24 +22,20 @@ namespace Flats
         public string GetDistricts(string selectedValue, string query)
         {
             string[] price = selectedValue.Split(new char[] { '-' });
-            query = $"Select DISTINCT District from Flats WHERE Price >= {price[0]} AND Price <= {price[1]}";
-
-            
-            return query;
+            return $"Select DISTINCT District from Flats WHERE Price >= {price[0]} AND Price <= {price[1]}";
         }
 
         public string GetRooms(string selectedValue, string query, string priceroom)
         {
             string[] price = priceroom.Split(new char[] { '-' });
-            
-            query = $"Select Distinct Rooms,District,Id from Flats WHERE  District = '{selectedValue}' AND Price >= {price[0]} AND Price <= {price[1]}";
-            return query;
+
+            return $"Select Distinct Rooms,District,Id from Flats WHERE  District = '{selectedValue}' AND Price >= {price[0]} AND Price <= {price[1]}";
+
         }
         public string GetFlats(string selectedValue, string districtflat, string priceroom, string query)
         {
             string[] price = priceroom.Split(new char[] { '-' });
-            query = $"Select FlatName,Id from Flats WHERE Rooms ={selectedValue} AND District = '{districtflat}' AND Price >= {price[0]} AND Price  <= {price[1]}";
-            return query;
+            return $"Select FlatName,Id from Flats WHERE Rooms ={selectedValue} AND District = '{districtflat}' AND Price >= {price[0]} AND Price  <= {price[1]}";
         }
 
     }
