@@ -17,8 +17,7 @@ namespace Booking
 
         }
 
-        public DbSet<Flat> Flats { get; set; }
-        public DbSet<People> people { get; set; }
+       
 
     }
 }

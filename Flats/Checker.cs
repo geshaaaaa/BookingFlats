@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Booking;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -12,14 +13,14 @@ using System.Windows.Forms;
 namespace Flats
  
 {
-    public class Checker 
+    public class Checker : ForConnection
     {
-        ForConnection database = new ForConnection();
+        
         public bool FlatChecker(DateTime checkInValue, DateTime checkOutValue, int flatId)
         {
 
-            SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM People WHERE FlatID = @FlatId   AND CheckInDate <= @CheckOutDate AND CheckOutDate >= @CheckInDate   ", database.getconnection());
-            database.openconnection();
+            SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM People WHERE FlatID = @FlatId   AND CheckInDate <= @CheckOutDate AND CheckOutDate >= @CheckInDate   ", getconnection());
+            openconnection();
 
             command.Parameters.AddWithValue("@FlatID", flatId);
             command.Parameters.AddWithValue("@CheckInDate", checkInValue);
@@ -27,7 +28,7 @@ namespace Flats
 
             int count = (int)command.ExecuteScalar();
 
-            database.closeconnection();
+            closeconnection();
 
             if (count > 0)
             {
@@ -36,28 +37,26 @@ namespace Flats
             }
             else { return false; }
         }
-
+        
         public string TotalPriceChecker(DateTime checkIn, DateTime checkOut, int FlatId)
         {
             
             string query = $"Select Price from Flats Where Id = {FlatId} ";
-            SqlCommand command = new SqlCommand(query, database.getconnection());
-            database.openconnection();
+            SqlCommand command = new SqlCommand(query, getconnection());
+            openconnection();
             int Price = (int)command.ExecuteScalar();
             int total = Price * (int)(checkOut - checkIn).TotalDays;
-            database.closeconnection();
+            closeconnection();
           return total.ToString();
         
         }
-
-
 
         public int PeopleInsert(int flatId, string phoneNumber, string personName,DateTime checkInValue, DateTime checkOutValue, int totalPrice)
         {
             string query = $"INSERT INTO People (CheckInDate,CheckOutDate,TotalPrice,FlatId,PersonName,PhoneNumber) VALUES (@checkInValue,@checkOutValue,@totalPrice,@flatId,@personName,@phoneNumber)";
            
-            SqlCommand commandDate = new SqlCommand(query, database.getconnection());
-            database.openconnection();
+            SqlCommand commandDate = new SqlCommand(query, getconnection());
+            openconnection();
             commandDate.Parameters.AddWithValue("@checkInValue", checkInValue);
             commandDate.Parameters.AddWithValue("@checkOutValue", checkOutValue);
             commandDate.Parameters.AddWithValue("@totalPrice", totalPrice);
@@ -65,7 +64,7 @@ namespace Flats
             commandDate.Parameters.AddWithValue("@personName", personName);
             commandDate.Parameters.AddWithValue("@phoneNumber", phoneNumber);
             int add =   commandDate.ExecuteNonQuery();
-            database.closeconnection();
+            closeconnection();
             MessageBox.Show("Ви забронювали квартиру, вам передзвонить наш оператор!");
             return add;
         }

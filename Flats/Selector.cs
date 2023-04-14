@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
 using Booking;
 using System.Data.SqlClient;
@@ -16,9 +15,9 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Flats
 {
-    public class Selector
+    public class Selector 
     {
-        ForConnection database = new ForConnection();
+      
         public string GetDistricts(string selectedValue, string query)
         {
             string[] price = selectedValue.Split(new char[] { '-' });
