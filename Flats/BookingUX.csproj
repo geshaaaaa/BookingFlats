@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Checker.cs" />
     <Compile Include="ForConnection.cs" />
+    <Compile Include="Inserter.cs" />
     <Compile Include="Migrations\202303030152180_Gena.cs" />
     <Compile Include="Migrations\202303030152180_Gena.designer.cs">
       <DependentUpon>202303030152180_Gena.cs</DependentUpon>
@@ -61,7 +62,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Flat.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="MyDbContext.cs" />
     <Compile Include="Selector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

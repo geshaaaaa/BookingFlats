@@ -20,6 +20,7 @@ namespace Flats
       
         public string GetDistricts(string selectedValue, string query)
         {
+         
             string[] price = selectedValue.Split(new char[] { '-' });
             return $"Select DISTINCT District from Flats WHERE Price >= {price[0]} AND Price <= {price[1]}";
         }

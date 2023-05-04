@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "задача-BookingViewer",
+      "appliesTo": "BookingViewer.cs",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "задача-Program",
+      "appliesTo": "Program.cs",
+      "type": "launch"
+    }
+  ]
+}

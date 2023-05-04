@@ -30,12 +30,8 @@ namespace Flats
 
             closeconnection();
 
-            if (count > 0)
-            {
-                MessageBox.Show("Для цієї квартири ці дати зайняті, оберіть іншу дату!");
-                return true;
-            }
-            else { return false; }
+            bool isFlatOccupied = count > 0;
+            return isFlatOccupied;
         }
         
         public string TotalPriceChecker(DateTime checkIn, DateTime checkOut, int FlatId)
@@ -51,23 +47,7 @@ namespace Flats
         
         }
 
-        public int PeopleInsert(int flatId, string phoneNumber, string personName,DateTime checkInValue, DateTime checkOutValue, int totalPrice)
-        {
-            string query = $"INSERT INTO People (CheckInDate,CheckOutDate,TotalPrice,FlatId,PersonName,PhoneNumber) VALUES (@checkInValue,@checkOutValue,@totalPrice,@flatId,@personName,@phoneNumber)";
-           
-            SqlCommand commandDate = new SqlCommand(query, getconnection());
-            openconnection();
-            commandDate.Parameters.AddWithValue("@checkInValue", checkInValue);
-            commandDate.Parameters.AddWithValue("@checkOutValue", checkOutValue);
-            commandDate.Parameters.AddWithValue("@totalPrice", totalPrice);
-           commandDate.Parameters.AddWithValue("@flatId", flatId);
-            commandDate.Parameters.AddWithValue("@personName", personName);
-            commandDate.Parameters.AddWithValue("@phoneNumber", phoneNumber);
-            int add =   commandDate.ExecuteNonQuery();
-            closeconnection();
-            MessageBox.Show("Ви забронювали квартиру, вам передзвонить наш оператор!");
-            return add;
-        }
+        
 
     }
 }

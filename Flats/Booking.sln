@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingUX", "BookingUX.csproj", "{E5E00585-DCB4-4381-925D-1B9AFC1C0575}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingUI", "..\BookingUI\BookingUI.csproj", "{3090FDD5-58AC-477A-A216-8562F56A150C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingUI", "..\..\Перенос в одну сборку\BookingUI\BookingUI.csproj", "{3090FDD5-58AC-477A-A216-8562F56A150C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
