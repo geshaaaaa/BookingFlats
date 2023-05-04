@@ -20,6 +20,7 @@ namespace BookingUI
     public partial class BookingViewer : Form
     {
        ForConnection database = new ForConnection();
+        DataBaseHelper dataBaseHelper = new DataBaseHelper();
         
         public BookingViewer()
         {
@@ -29,21 +30,11 @@ namespace BookingUI
 
         private void PriceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            string selectedValue = PriceComboBox.SelectedItem.ToString();
+            Selector priceselector = new Selector();
             string query = "";
-            Selector priceSelector = new Selector();
-            query = priceSelector.GetDistricts(selectedValue, query);
-            SqlCommand command = new SqlCommand(query, database.getconnection());
-            database.openconnection();
-            SqlDataReader reader = command.ExecuteReader();
-            DistrictDropdown.Items.Clear();
-            while (reader.Read())
-            {
-                DistrictDropdown.Items.Add(reader.GetString(0));
-            }
-            reader.Close();
-            database.closeconnection();
+            string selectedValue = PriceComboBox.SelectedItem.ToString();
+             query = priceselector.GetDistricts(selectedValue, query);
+            dataBaseHelper.ExecutePrice(query, DistrictDropdown);
         }
 
 
@@ -55,17 +46,7 @@ namespace BookingUI
             string priceroom = PriceComboBox.SelectedItem.ToString();
             string query = "";
             query = roomsSelector.GetRooms(selectedValue, query, priceroom);
-            SqlCommand command = new SqlCommand(query, database.getconnection());
-            database.openconnection();
-            SqlDataReader reader = command.ExecuteReader();
-            RoomsDropdown.Items.Clear();
-            while (reader.Read())
-            {
-                RoomsDropdown.Items.Add(reader.GetInt32(0));
-            }
-            reader.Close();
-            database.closeconnection();
-
+           dataBaseHelper.ExecuteDistrict(query, RoomsDropdown); 
 
         }
 
@@ -76,38 +57,11 @@ namespace BookingUI
             string districtflat = DistrictDropdown.SelectedItem.ToString();
             string priceroom = PriceComboBox.SelectedItem.ToString();
             string query = "";
-            query = flatSelector.GetFlats(selectedValue, districtflat, priceroom,query);
-
-
-            SqlCommand command = new SqlCommand(query, database.getconnection());
-            database.openconnection();
-            SqlDataAdapter adapter = new SqlDataAdapter(command);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            command.ExecuteNonQuery();
-            DistrictDropdown.Items.Clear();
-            RoomsDropdown.Items.Clear();
-            database.closeconnection();
-            FlatDropdown.DataSource = ds.Tables[0];
-            FlatDropdown.ValueMember = "Id";
-            FlatDropdown.DisplayMember = "FlatName";
-
-
-        }
-        private void FlatDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-
-
-
+            query = flatSelector.GetFlats(selectedValue, districtflat, priceroom, query);
+            dataBaseHelper.ExecuteFlat(query, RoomsDropdown,DistrictDropdown,FlatDropdown);
         }
 
-        private void CheckInCalendar_ValueChanged(object sender, EventArgs e)
-        {
 
-
-        }
         private void CheckOutCalendar_ValueChanged(object sender, EventArgs e)
         {
             Checker checker = new Checker();
@@ -120,42 +74,23 @@ namespace BookingUI
         private void OkButton_Click(object sender, EventArgs e)
         {
             Checker checker = new Checker();
-           
+            Inserter inserter = new Inserter();
             int totalPrice = int.Parse(PriceEquals.Text);
             DateTime checkInValue = CheckInCalendar.Value;
             DateTime checkOutValue = CheckOutCalendar.Value;
             int flatId = (int)FlatDropdown.SelectedValue;
             string phoneNumber = PhoneTextBox.Text;
             string personName = NametextBox.Text;
-            if (checker.FlatChecker(checkInValue,checkOutValue,flatId))
+            bool isFlatOccupied = checker.FlatChecker(checkInValue, checkOutValue, flatId);
+
+            if (isFlatOccupied)
             {
+
+                MessageBox.Show("Для цієї квартири ці дати зайняті, оберіть іншу дату!");
                 return;
             }
-        
-            checker.PeopleInsert(flatId,phoneNumber,personName,checkInValue,checkOutValue,totalPrice);
-
+            inserter.PeopleInsert(flatId,phoneNumber,personName,checkInValue,checkOutValue,totalPrice);
+            MessageBox.Show("Квартира заброньована, вам передзвонить оператор!");
         }
-
-
-
-
-        
-
-        private void PhoneLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NametextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }
